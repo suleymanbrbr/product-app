@@ -1,0 +1,176 @@
+/* --- Product Card Spacing and Layout --- */
+.product-card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: none; /* Remove any shadow */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0 15px; /* Add horizontal spacing between cards */
+}
+
+/* --- Product Image Adjustments --- */
+.product-image {
+  width: 100%;
+  max-width: 220px; /* Keep max-width if desired */
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  /* --- CHANGE THIS LINE --- */
+  /* From: margin: 0 auto 25px auto; */
+  /* To: Remove horizontal auto margins */
+  margin: 0 0 25px 0; /* Top:0, Right:0, Bottom:25px, Left:0 */
+  /* --- END CHANGE --- */
+  border-radius: 8px;
+  /* Align self to start if parent is flex (optional, usually default) */
+  /* align-self: flex-start; */
+}
+
+/* --- Info Container - Should already be aligning text left --- */
+.product-info {
+   margin-bottom: 15px;
+   width: 100%; /* Ensure it spans width */
+   text-align: left; /* Align text inside */
+}
+
+/* --- Popularity Section - Should already be aligning content left --- */
+.product-popularity {
+  /* ... */
+  display: flex;
+  justify-content: flex-start; /* Align stars/score block left */
+  width: 100%; /* Ensure it spans width */
+  /* ... */
+}
+
+/* --- Product Title and Price --- */
+.product-name {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #333;
+  margin: 0 0 6px 0;
+  line-height: 1.4;
+}
+
+/* --- Product Price Font --- */
+.product-price {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400; /* Regular */
+  font-size: 15px;
+  color: #495057;
+  margin: 0 0 15px 0;
+}
+
+/* --- Color Picker --- */
+.color-picker {
+  display: flex;
+  justify-content: flex-start; /* Align swatches left */
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  min-height: 28px;
+}
+
+/* --- Color Swatch Refinements --- */
+.color-swatch {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none; /* Remove base border */
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: transform 0.2s ease;
+}
+
+.color-swatch:hover {
+  transform: scale(1.1);
+}
+
+/* Selected swatch with white space and black outline */
+.color-swatch.selected {
+  box-shadow: 0 0 0 2px white, 0 0 0 3px black; /* White space then black outline */
+  border: none;
+}
+
+/* --- Color Name Style --- */
+.product-color-name {
+   font-family: 'Avenir', sans-serif;
+   font-weight: 400;
+   font-size: 12px;
+   color: #6c757d;
+   margin: 0 0 5px 0;
+   min-height: 1.3em;
+   text-transform: capitalize;
+}
+
+/* --- Star Rating Section --- */
+.product-popularity {
+  font-family: 'Montserrat', sans-serif;
+  color: #6c757d;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  padding-top: 15px; /* Spacing from content above */
+  /* --- NO BORDER-TOP HERE --- */
+  margin-top: 15px;
+  width: 100%;
+}
+
+/* Container for stars, sets default empty color */
+.stars {
+  display: inline-block;
+  line-height: 1;
+  font-size: 20px;
+  color: #d8d8d8; /* This is the color for EMPTY stars */
+}
+
+/* Base style for individual stars */
+.star {
+   display: inline-block;
+   position: relative;
+   color: inherit; /* Inherit the empty color from .stars */
+   margin: 0 1px;
+   user-select: none;
+   -webkit-user-select: none;
+}
+
+/* --- Empty Star Explanation --- */
+/* The empty star style is handled by the default 'color' */
+/* set on the '.stars' container and inherited by '.star'. */
+/* So, '.star-empty' doesn't strictly need rules unless you want */
+/* to override something specific for empty ones. */
+
+
+/* Styles for full and partial stars remain the same */
+.star-full { color: #f8d64e; }
+.star-partial { display: inline-block; color: #f8d64e; position: relative; }
+.star-partial::before { content: '★'; position: absolute; top: 0; left: 0; color: #d8d8d8; width: 100%; overflow: hidden; clip-path: inset(0 0 0 var(--star-fill-percentage)); z-index: 1; }
+
+
+/* Rating score value style (Keep as before) */
+.score-value {
+  font-family: 'Avenir', sans-serif; /* Avenir */
+  font-weight: 400;               /* Book */
+  font-size: 14px;                /* 14px */
+  line-height: 1;
+  color: #4a4a4a;
+  vertical-align: middle;
+  padding-left: 2px;
+}
+
+/* --- Responsive Styles (Keep as before) --- */
+/* ... */
+/* --- END STAR RATING STYLES --- */
+  
+  /* --- Keep Responsive Styles --- */
+  @media (max-width: 768px) {
+    /* ... existing responsive styles ... */
+    .stars {
+       font-size: 18px; /* Adjust responsive size */
+    }
+    .score-value {
+       font-size: 13px; /* Adjust responsive size */
+    }
+  }

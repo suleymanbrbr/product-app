@@ -1,0 +1,309 @@
+/* src/App.css */
+.App {
+  max-width: 1200px;
+  margin: 20px auto; /* Added top margin */
+  padding: 20px;
+}
+
+.App-header {
+  text-align: center;
+  margin-bottom: 40px; /* Increased spacing */
+  padding-bottom: 20px; /* Increased spacing */
+  /* border-bottom: 1px solid #e9ecef; /* Slightly lighter border */
+}
+
+/* --- Title Styling --- */
+.product-list-title {
+  font-family: 'Avenir', sans-serif; /* Use Avenir */
+  font-weight: 400;               /* Use Book weight */
+  font-size: 45px;                /* Set size */
+  color: #343a40;
+  margin: 0;
+}
+
+
+.status-message {
+  text-align: center;
+  font-size: 1.2em;
+  color: #6c757d; /* Bootstrap's secondary color */
+  padding: 20px;
+}
+
+/* General Error Message Styling (e.g., for fetch errors) */
+.error-message {
+    color: #dc3545; /* Bootstrap's danger color */
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    padding: 10px 15px; /* Added some padding */
+    margin: 10px 0; /* Spacing around the error */
+}
+
+/* --- Swiper Navigation Button Styling --- */
+/* ... (Swiper styles remain the same) ... */
+.product-list-container {
+  position: relative;
+  padding: 0 40px; /* Space for arrows */
+  margin-bottom: 40px; /* More space for scrollbar */
+}
+.swiper-button-next,
+.swiper-button-prev {
+  top: 35% !important;
+  transform: translateY(-50%) !important;
+  color: #666 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.swiper-button-prev { left: 1px !important; }
+.swiper-button-next { right: 1px !important; }
+.swiper-button-next::after,
+.swiper-button-prev::after { font-size: 24px !important; font-weight: 600 !important; }
+.swiper-pagination { display: none !important; }
+.swiper-slide { height: auto !important; display: flex; }
+.swiper-slide > div { width: 100%; }
+.swiper-scrollbar {
+  bottom: 0 !important; left: 50% !important; transform: translateX(-50%) !important;
+  width: 95% !important; height: 7px !important; background-color: #D8D8D8 !important;
+  border-radius: 4px !important; margin-top: 30px !important; /* Added !important */
+}
+.swiper-container-horizontal > .swiper-scrollbar .swiper-scrollbar-drag,
+.swiper-scrollbar-drag {
+  width: 25% !important; background-color: #BBBBBB !important;
+  border-radius: 4px !important; cursor: grab;
+}
+.swiper-scrollbar-drag:active { cursor: grabbing; }
+/* --- End Swiper Styles --- */
+
+
+/* --- Control Bar Styles --- */
+.controls-bar {
+display: flex; /* Use flexbox */
+flex-wrap: wrap; /* Allow items to wrap to the next line */
+gap: 15px 20px; /* Row gap, Column gap */
+align-items: flex-end; /* Align items along the bottom */
+background-color: #ffffff;
+border-radius: 12px;
+padding: 15px 20px; /* Adjust padding */
+margin-bottom: 30px;
+box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+border: 1px solid #f0f0f0;
+}
+
+/* --- Styles for Individual Filter Groups (Label + Input) --- */
+.filter-group {
+display: flex;
+flex-direction: column;
+gap: 5px;
+/* Removed min-width and flex grow/shrink here, handled by wrappers below */
+}
+
+.filter-group label {
+font-family: 'Avenir', sans-serif;
+font-weight: 500;
+font-size: 12px;
+color: #555;
+margin-bottom: 0;
+}
+
+.filter-group input[type="number"] {
+font-family: 'Montserrat', sans-serif;
+font-size: 13px;
+padding: 8px 10px;
+border: 1px solid #d8dde3;
+border-radius: 6px;
+background-color: #fdfdfd;
+width: 100%; /* Take up group width */
+box-sizing: border-box;
+transition: border-color 0.2s ease, box-shadow 0.2s ease;
+-moz-appearance: textfield;
+}
+.filter-group input[type="number"]::-webkit-outer-spin-button,
+.filter-group input[type="number"]::-webkit-inner-spin-button {
+-webkit-appearance: none; margin: 0;
+}
+.filter-group input[type="number"]:focus {
+outline: none;
+border-color: #a0c3ff;
+box-shadow: 0 0 0 2px rgba(102, 175, 233, 0.25);
+}
+
+/* --- ** NEW: Input Error Styling ** --- */
+.filter-group input[type="number"].input-error {
+border-color: #dc3545 !important; /* Red border for error */
+background-color: #fef0f0; /* Optional: slight red background */
+}
+.filter-group input[type="number"].input-error:focus {
+outline: none;
+border-color: #dc3545 !important;
+ box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.25) !important; /* Red focus shadow */
+}
+
+
+/* --- ** NEW: Wrappers for Price/Rating Groups + Errors ** --- */
+.filter-group-price,
+.filter-group-rating {
+display: flex;
+flex-direction: column; /* Stack input row and error message */
+gap: 3px; /* Small gap between inputs row and error */
+min-width: 250px; /* Give combined group a min-width */
+flex: 1 1 auto; /* Allow growing/shrinking */
+}
+
+.price-inputs,
+.rating-inputs {
+display: flex; /* Keep Min/Max inputs side-by-side */
+gap: 10px; /* Gap between Min and Max input groups */
+}
+
+/* Make individual groups within the row take up available space */
+.price-inputs .filter-group,
+.rating-inputs .filter-group {
+  flex: 1; /* Allow inputs to share space equally */
+  min-width: 100px; /* Prevent inputs from becoming too small */
+}
+
+
+/* --- ** NEW: Validation Error Text Styling ** --- */
+.price-error-text,
+.rating-error-text {
+/* Inherits .error-message styles if needed, override background/border */
+background-color: transparent;
+border: none;
+padding: 0;
+margin: 0; /* Reset margin */
+margin-top: 2px; /* Small space above error text */
+font-size: 0.8em; /* Smaller font */
+font-weight: bold;
+color: #dc3545; /* Error red color */
+text-align: center; /* Center error below inputs */
+width: 100%; /* Span the width of the wrapper */
+min-height: 1.2em; /* Reserve space even when empty? Optional */
+}
+
+
+/* --- Styles for Filter Actions (Inside Control Bar) --- */
+.filter-actions {
+display: flex;
+gap: 8px;
+}
+
+.filter-button {
+font-family: 'Montserrat', sans-serif;
+font-size: 13px;
+font-weight: 500;
+padding: 8px 14px;
+border: none;
+border-radius: 6px;
+cursor: pointer;
+transition: background-color 0.2s ease, transform 0.1s ease;
+}
+.filter-button:active { transform: scale(0.98); }
+.filter-button.apply { background-color: #4a90e2; color: white; }
+.filter-button.apply:hover { background-color: #3a7bc8; }
+.filter-button.clear { background-color: #f0f0f0; color: #555; border: 1px solid #d8dde3; padding: 7px 14px; }
+.filter-button.clear:hover { background-color: #e0e0e0; border-color: #c8c8c8; }
+
+/* --- Styles for Sort Control (Inside Control Bar) --- */
+.sort-control-group {
+display: flex;
+align-items: center;
+gap: 8px;
+margin-left: auto; /* Push sort control to the far right */
+}
+
+.sort-control-group label {
+font-family: 'Avenir', sans-serif;
+font-weight: 400;
+font-size: 13px;
+color: #555;
+margin: 0;
+white-space: nowrap;
+}
+
+.sort-control-group select {
+font-family: 'Avenir', sans-serif;
+font-weight: 400;
+font-size: 13px;
+color: #333;
+padding: 8px 25px 8px 10px;
+border: 1px solid #d8dde3;
+border-radius: 6px;
+background-color: #ffffff;
+cursor: pointer;
+appearance: none; -webkit-appearance: none; -moz-appearance: none;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23555'%3E%3Cpath fill-rule='evenodd' d='M4.22 6.03a.75.75 0 0 1 1.06 0L8 8.74l2.72-2.71a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.09a.75.75 0 0 1 0-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E");
+background-repeat: no-repeat;
+background-position: right 6px center;
+background-size: 14px 14px;
+min-width: 130px;
+}
+.sort-control-group select:focus {
+  outline: none;
+  border-color: #a0c3ff;
+  box-shadow: 0 0 0 2px rgba(102, 175, 233, 0.25);
+}
+/* --- END: Control Bar Styles --- */
+
+
+/* --- Responsive Styles --- */
+@media (max-width: 992px) {
+.controls-bar {
+  gap: 15px;
+  padding: 15px;
+}
+ .sort-control-group {
+   margin-left: 0;
+   width: 100%;
+   justify-content: flex-end;
+   padding-top: 10px;
+ }
+ /* Adjust wrapper min-width on smaller screens */
+ .filter-group-price, .filter-group-rating {
+   min-width: 200px;
+ }
+}
+
+@media (max-width: 768px) { /* Further reduce wrapper min-width */
+   .filter-group-price, .filter-group-rating {
+     min-width: 180px;
+   }
+}
+
+@media (max-width: 680px) { /* Stack controls */
+.controls-bar {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+}
+.filter-actions {
+  justify-content: center;
+}
+ .sort-control-group {
+   justify-content: center;
+   width: auto;
+   padding-top: 0;
+ }
+ .sort-control-group select {
+     width: 100%;
+     max-width: 300px;
+ }
+ /* Remove min-width for stacked layout */
+ .filter-group-price, .filter-group-rating {
+   min-width: unset;
+ }
+}
+
+/* Responsive Swiper */
+@media (max-width: 768px) {
+.product-list-container {
+  padding: 0 40px; margin: 0 -40px; margin-bottom: 35px;
+}
+.swiper-scrollbar { height: 8px !important; width: 75% !important; }
+}
+@media (max-width: 480px) {
+.product-list-container {
+  padding: 0 30px; margin: 0 -30px; margin-bottom: 30px;
+}
+.swiper-scrollbar { height: 6px !important; width: 70% !important; }
+}
