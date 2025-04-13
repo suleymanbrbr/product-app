@@ -17,11 +17,8 @@
   height: auto;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  /* --- CHANGE THIS LINE --- */
-  /* From: margin: 0 auto 25px auto; */
-  /* To: Remove horizontal auto margins */
+  
   margin: 0 0 25px 0; /* Top:0, Right:0, Bottom:25px, Left:0 */
-  /* --- END CHANGE --- */
   border-radius: 8px;
   /* Align self to start if parent is flex (optional, usually default) */
   /* align-self: flex-start; */
@@ -113,7 +110,6 @@
   align-items: center;
   gap: 8px;
   padding-top: 15px; /* Spacing from content above */
-  /* --- NO BORDER-TOP HERE --- */
   margin-top: 15px;
   width: 100%;
 }
@@ -136,12 +132,6 @@
    -webkit-user-select: none;
 }
 
-/* --- Empty Star Explanation --- */
-/* The empty star style is handled by the default 'color' */
-/* set on the '.stars' container and inherited by '.star'. */
-/* So, '.star-empty' doesn't strictly need rules unless you want */
-/* to override something specific for empty ones. */
-
 
 /* Styles for full and partial stars remain the same */
 .star-full { color: #f8d64e; }
@@ -161,8 +151,6 @@
 }
 
 /* --- Responsive Styles (Keep as before) --- */
-/* ... */
-/* --- END STAR RATING STYLES --- */
   
   /* --- Keep Responsive Styles --- */
   @media (max-width: 768px) {

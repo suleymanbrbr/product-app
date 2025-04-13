@@ -66,7 +66,7 @@ const ProductCard = ({ product }) => {
           {Object.entries(colorMap).map(([colorName, colorHex]) => (
              // Check if product.images and the specific color image exist
              product.images && product.images[colorName] && (
-              // --- RESTORED BUTTON CODE ---
+              // --- BUTTON CODE ---
               <button
                 key={colorName} // Unique key for each button
                 className={`color-swatch ${selectedColor === colorName ? 'selected' : ''}`} // Dynamic class for styling selected
@@ -75,7 +75,7 @@ const ProductCard = ({ product }) => {
                 aria-label={`Select ${colorName} gold`} // Accessibility label
                 title={`${colorName.charAt(0).toUpperCase() + colorName.slice(1)} Gold`} // Tooltip on hover
               />
-              // --- END RESTORED BUTTON CODE ---
+              // --- END BUTTON CODE ---
             )
           ))}
         </div>

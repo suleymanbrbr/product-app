@@ -40,7 +40,6 @@
 }
 
 /* --- Swiper Navigation Button Styling --- */
-/* ... (Swiper styles remain the same) ... */
 .product-list-container {
   position: relative;
   padding: 0 40px; /* Space for arrows */
@@ -95,7 +94,7 @@ border: 1px solid #f0f0f0;
 display: flex;
 flex-direction: column;
 gap: 5px;
-/* Removed min-width and flex grow/shrink here, handled by wrappers below */
+
 }
 
 .filter-group label {
@@ -128,7 +127,7 @@ border-color: #a0c3ff;
 box-shadow: 0 0 0 2px rgba(102, 175, 233, 0.25);
 }
 
-/* --- ** NEW: Input Error Styling ** --- */
+/* --- **: Input Error Styling ** --- */
 .filter-group input[type="number"].input-error {
 border-color: #dc3545 !important; /* Red border for error */
 background-color: #fef0f0; /* Optional: slight red background */
@@ -140,7 +139,7 @@ border-color: #dc3545 !important;
 }
 
 
-/* --- ** NEW: Wrappers for Price/Rating Groups + Errors ** --- */
+/* --- **: Wrappers for Price/Rating Groups + Errors ** --- */
 .filter-group-price,
 .filter-group-rating {
 display: flex;
@@ -164,7 +163,7 @@ gap: 10px; /* Gap between Min and Max input groups */
 }
 
 
-/* --- ** NEW: Validation Error Text Styling ** --- */
+/* --- **: Validation Error Text Styling ** --- */
 .price-error-text,
 .rating-error-text {
 /* Inherits .error-message styles if needed, override background/border */

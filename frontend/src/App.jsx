@@ -20,7 +20,7 @@ function App() {
   const [sortBy, setSortBy] = useState('default');
 
   // --- Backend URL ---
-  const baseApiUrl = 'https://product-listing-app-7pwi-backend-kpt6w81n2.vercel.app/api/products';
+  const baseApiUrl = 'https://product-app-backend-l1ujsu3i3-suleymans-projects-2f8f8c76.vercel.app/api/products';
 
   console.log("API Base URL:", baseApiUrl);
 
@@ -29,8 +29,7 @@ function App() {
     setLoading(true);
     setError(null); // Clear fetch error
     // Clear validation errors when starting a new fetch triggered by filter change
-    // setPriceError(''); // Better to clear these only in handleClearFilters or when input changes
-    // setRatingError('');
+
     const params = new URLSearchParams();
     // ... (rest of fetchProducts remains the same) ...
     if (filters.minPrice) params.append('minPrice', filters.minPrice);
@@ -79,7 +78,7 @@ function App() {
   }, [allProducts, sortBy]);
 
 
-  // --- ** MODIFIED Filter Handlers ** ---
+  // --- ** Filter Handlers ** ---
   const handleApplyFilters = () => {
       const filtersToApply = {};
       let currentRatingError = '';
@@ -175,8 +174,7 @@ function App() {
       setPriceError('');
       setRatingError('');
       setActiveFilters({});
-      // Optionally reset sort order:
-      // setSortBy('default');
+    
   };
 
   // --- Sort Change Handler ---
